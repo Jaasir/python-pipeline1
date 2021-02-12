@@ -4,7 +4,8 @@ node('master') {
         git([url:'https://github.com/Jaasir/python-pipeline1',branch:'add-functions-and-tests'])
     }
     
-   
+    dir('.'){
+        printMessage('Running Pipeline')
         stage("Testing") {
             bat 'python test_functions.py'
         }
@@ -16,6 +17,7 @@ node('master') {
             }
             
         }
+    }
         printMessage('Pipeline Complete')
     
 }
