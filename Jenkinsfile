@@ -3,8 +3,7 @@ node('master') {
         git 'https://github.com/Jaasir/python-pipeline1'
     }
     
-    stage('start building') {
-        printMessage('Running Pipeline')
+   
         stage("Testing") {
             bat 'python test_functions.py'
         }
@@ -17,7 +16,7 @@ node('master') {
             
         }
         printMessage('Pipeline Complete')
-    }
+    
 }
 
 def printMessage(message) {
