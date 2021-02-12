@@ -1,12 +1,12 @@
 node('master') {
     stage("Fetch Source Code") {
-        git ''
+        git 'https://github.com/Jaasir/python-pipeline1'
     }
     
-    dir('Lesson5') {
+    stage('start building') {
         printMessage('Running Pipeline')
         stage("Testing") {
-            sh 'python test_functions.py'
+            bat 'python test_functions.py'
         }
         stage("Deployment") {
             if (env.BRANCH_NAME == 'master') {
